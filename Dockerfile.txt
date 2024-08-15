@@ -1,0 +1,11 @@
+# Use uma imagem base com Java 17
+FROM eclipse-temurin:17-jdk-alpine
+
+# Diretorio de trabalho dentro do conteiner
+WORKDIR /app
+
+# Copie o arquivo JAR gerado pelo build da aplicacao para dentro do conteiner
+COPY target/autenticacaoApi-0.0.1.jar /app/autenticacaoApi-0.0.1.jar
+
+# Comando para rodar a aplicacao
+ENTRYPOINT ["java", "-jar", "/app/autenticacaoApi-0.0.1.jar"]
